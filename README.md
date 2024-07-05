@@ -1,4 +1,4 @@
-# Synthesised-Biomedical-Image-Generation
+# Biomedical-Image-Generation
 ## Introduction
 Welcome to the Biomedical Image Generation repository. This repository contains the comprehensive codebase and requirements necessary for generating synthetic biomedical images with pix2pix. It provides detailed explanations for each component, covering the entire process from initial segmentation to the generation of reference images, and culminating in the final model training.
 
