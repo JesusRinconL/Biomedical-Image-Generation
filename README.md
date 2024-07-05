@@ -20,7 +20,7 @@ Image segmentation is the process of dividing an image into segments or regions 
 
 Below is an example of image segmentation, showing how the image is divided into distinct regions:
 <div align="center">
-    <img src="web/segmentation.png" alt="Image Segmentation Example">
+    <img src="images/segmentation.png" alt="Image Segmentation Example">
 </div>
 
 ## Part 2: Image Reference Creation
@@ -29,7 +29,7 @@ Once the images are segmented, the detected regions are associated with differen
 
 Below is an example of the image reference creation process, illustrating the visual changes under different conditions:
 <div align="center">
-    <img src="web/mask.png" alt="Image Reference Creation Example">
+    <img src="images/mask.png" alt="Image Reference Creation Example">
 </div>
 
 ## Part 3: Image Generation
@@ -38,5 +38,5 @@ Through the defined patterns, datasets are generated to train the deep neural ne
 
 Below is an example of the image generation process, showing the results of synthetic image creation:
 <div align="center">
-    <img src="web/generation.png" alt="Image Generation Process Example">
+    <img src="images/generation.png" alt="Image Generation Process Example">
 </div>
