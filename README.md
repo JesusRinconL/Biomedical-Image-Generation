@@ -77,7 +77,10 @@ labels3rdLayer = labels[(label_mean >= limit2)]
 We selected the inferior limit of 55 and superior of 95, the code selects the limits of 70.67 and 79.98. The division of values per layer would be as follows: 307, 498, 498, 498 and 120.
 
 ## Part 3: DataSet Generation
-### There are 3 codes available, corresponding to those in the previous section
+### There are 4 codes available in "DataSets Generation Codes"
+They have slight differences among them, and each is intended to generate datasets in the same way but for different conditions. "DS_Gen_256.py" and "DS_Gen_512.py" are designed for patterns with four levels, one for 256x256 pixels and the other for 512x512 pixels. The other two adjust to the number of levels specified by the codes. Simply modify "NUM_labels" to 8 or 10 depending on whether you used Reference2 or Reference3, respectively.
+
+From these codes, a dataset is generated and divided into three folders: training, testing, and validation. In these codes, we can adjust the number of images we want in each set.
 
 ## Part 4: Image Generation
 ### Description of the Image Generation Process and Results
@@ -87,3 +90,9 @@ Below is an example of the image generation process, showing the results of synt
 <div align="center">
     <img src="images/generation.png" alt="Image Generation Process Example">
 </div>
+
+## Part 5: Validation
+### 
+
+
+Here is the link to the presentation of the thesis work: https://prezi.com/view/KBgbwl8Kgd8tGbzO85Hm/
