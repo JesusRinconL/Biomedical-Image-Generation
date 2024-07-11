@@ -148,6 +148,9 @@ By modifying "--num_test", you can select the number of images you want to gener
 This code has been implemented that allows the comparison of generated images with the original ones in a massive way. The first part is for testing a single image, the second for entire data sets, and finally the results are plotted.
 
 The metrics that has being used are the following: PSNR, SSIM, MSE, MAE, LPIPS, Pearson Correlation, Cross Entropy, Histogram Difference Measurement and Gradient Error.
+
+## Final Generatin Results
+https://www.youtube.com/watch?v=mLRkNPMT0s0 
 ### Link to presentation
 More code has been developed in the course of the work, but so far this is the essential part of generating realistic images.
 Here is the link to the presentation of the thesis work: https://prezi.com/view/KBgbwl8Kgd8tGbzO85Hm/
