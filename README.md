@@ -5,7 +5,9 @@ Welcome to the Biomedical Image Generation repository. This repository contains 
 To optimize performance and reduce execution time, it is recommended to run this code on a GPU-enabled device. The codebase is highly adaptable, allowing for modifications to suit various requirements. In particular, the segmentation tool is designed to be customizable, ensuring specificity for different biomedical imaging scenarios.
 
 ## Part 0: Enviroment Set Up, Requirements and Data Selection
-First of all, it is highly recommended to have a GPU-enabled device, otherwise the execution time is going to be prolonged. The following code checks if you have a GPU operative in your environment:
+First of all, you need images of anytype so that you can execute the different codes provided in this repo.
+
+Additionally, it is highly recommended to have a GPU-enabled device, otherwise the execution time is going to be prolonged. The following code checks if you have a GPU operative in your environment:
 
 ```python
 # Check if CUDA is available
@@ -91,8 +93,61 @@ Below is an example of the image generation process, showing the results of synt
     <img src="images/generation.png" alt="Image Generation Process Example">
 </div>
 
-## Part 5: Validation
-### 
+### Tensorboard
+Follow the next steps before training the modelo, to visualize the training loss function:
+```python
+from torch.utils.tensorboard import SummaryWriter
 
+writer = SummaryWriter()
+x = torch.arange(-5, 5, 0.1).view(-1, 1)
+y = -5 * x + 0.1 * torch.randn(x.size())
 
+model = torch.nn.Linear(1, 1)
+criterion = torch.nn.MSELoss()
+optimizer = torch.optim.SGD(model.parameters(), lr = 0.1)
+
+def train_model(iter):
+    for epoch in range(iter):
+        y1 = model(x)
+        loss = criterion(y1, y)
+        writer.add_scalar("Loss/train", loss, epoch)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+train_model(10)
+writer.flush()
+```
+Once training is complete, you should run:
+```python
+writer.close()
+```
+To view the results, navigate to the corresponding folder in the terminal and execute the following command:
+```
+tensorboard --logdir=runs
+```
+
+### Entrenamiento y generación de imágenes
+For training, you only need to download the pix2pix GitHub repository: 
+https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+
+And run:
+```
+!python train.py --dataroot "C:\\path\\to\\data" --name modelo_name --model pix2pix --direction BtoA --display_id -1 --input_nc 1 --output_nc 1
+```
+You should adjust the number of channels for each case. Since the images are in grayscale, select 1 for both input and output.
+
+To generate images in bulk using the test set, run:
+```
+!python test.py --dataroot ./path/to/data --direction BtoA --model pix2pix --name model_name --use_wandb --input_nc 1 --output_nc 1
+```
+By modifying "--num_test", you can select the number of images you want to generate with the desired model.
+
+## Part 5: Evaluation
+### "Metrics.py" evaluates the generated images quality
+This code has been implemented that allows the comparison of generated images with the original ones in a massive way. The first part is for testing a single image, the second for entire data sets, and finally the results are plotted.
+
+The metrics that has being used are the following: PSNR, SSIM, MSE, MAE, LPIPS, Pearson Correlation, Cross Entropy, Histogram Difference Measurement and Gradient Error.
+### Link to presentation
+More code has been developed in the course of the work, but so far this is the essential part of generating realistic images.
 Here is the link to the presentation of the thesis work: https://prezi.com/view/KBgbwl8Kgd8tGbzO85Hm/
